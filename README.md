@@ -53,7 +53,7 @@ Input: `Hello, there`
 
 Output: `Hllo, thr`
 
-``` swift 
+```swift 
 
 let message3 = "Hello, there"
 
@@ -107,7 +107,7 @@ Input: `[1,5,2,4,1,4]`
 
 Output: `17`
 
-``` swift 
+```swift 
 
 let arr = [1,5,2,4,1,4]
 let result = arr.reduce(0, +)
@@ -140,7 +140,7 @@ Input: `[3,4.5,7.5,2,1], 3`
 
 Output: `12`
 
-``` swift 
+```swift 
 
 let arr5 = [3,4.5,7.5,2,1]
 
@@ -155,7 +155,7 @@ Input: `[3,4.5,7.5,2,1]`
 
 Output: `202.5`
 
-``` swift 
+```swift 
 
 
 let arr6 = [3,4.5,7.5,2,1]
@@ -172,7 +172,7 @@ Input: `[3,6,1,9,4,8]`
 
 Output: `3`
 
-``` swift 
+```swift 
 
 let arr7 = [3,6,1,9,4,8]
 
@@ -191,15 +191,15 @@ Input: `[nil, "We", "come", nil, "in", "peace"]`
 
 Output: `["We", "come", "in", "peace"]`
 
-``` swift
+```swift
 
 let input1: [String?] = [nil, "We", "come", nil, "in", "peace"]
 var output1: [String] = []
 
 for word in input1 {
-if let word = word {
-output1.append(word)
-}
+    if let word = word {
+        output1.append(word)
+    }
 }
 print(output1)
 
@@ -212,7 +212,15 @@ Input: `nil`
 
 Output: `[]`
 
+*This one done without partner 
 
+```swift
+
+let input: [String?]? = [nil]
+
+let output = input?.filter{$0 != nil}
+
+print(output ?? [])
 
 ```
 
@@ -222,11 +230,44 @@ Input: `[4, nil, 9, 5, nil]`
 
 Output: `18`
 
+*This one done without partner 
+
+```swift 
+
+let input: [Int?] = [4, nil, 9, 5, nil]
+var onlyNums = [Int]()
+
+for num in input {
+    guard let realNum = num else {
+        continue
+    }
+    onlyNums.append(realNum)
+}
+
+print(onlyNums)
+
+```
 4. **Given an array of type [Int?]? return the sum of all non-nil values.  Use guard statements in your solution.**
 
 Input: `nil`
 
 Output: `0`
+
+*This one done without partner 
+
+```swift 
+
+let input: [Int?] = [nil]
+var sum = 0
+
+for num in input {
+    guard let realNum = num else {
+        continue
+    }
+    sum += realNum
+}
+
+```
 
 5. **Given an array of type [Int?] and an optional Int, return the sum of all values not equal to the given number.  If the given number is nil, return the sum of all non-nil values.**
 
@@ -240,9 +281,9 @@ let input5: [Int?] = [1, 1, nil, 3, 5, nil, 1, nil, 3, 5, nil, 5, nil, 3]
 var output = [Int]()
 
 for number in input5 {
-if let numberx = number {
-output.append(numberx)
-}
+    if let numberx = number {
+        output.append(numberx)
+    }
 }
 print(output.filter{$0 != 1}.reduce(0,+))
 
@@ -258,7 +299,7 @@ Input: `["apple", "apple", "banana", "banana", "banana", "cake", "cake"]`
 
 Output: `["apple", "banana", "cake"]`
 
-``` swift
+```swift
 
 let input = ["apple", "apple", "banana", "banana", "banana", "cake", "cake"]
 let inputSet = Set(input)
@@ -273,25 +314,25 @@ Input: `Never trust a computer you can't throw out a window ~ Steve Wozniak`
 
 Output: `t`
 
-``` swift
+```swift
 
 var letterFrequency = [String:Int]()
 for letter in quote.lowercased().filter({$0 != " "}) {
 
-if let count = letterFrequency[String(letter)] {
-letterFrequency[String(letter)] = count + 1
-} else {
-letterFrequency[String(letter)] = 1
+    if let count = letterFrequency[String(letter)] {
+        letterFrequency[String(letter)] = count + 1
+    } else {
+        letterFrequency[String(letter)] = 1
+    }
 }
 
-}
 var highestFreq = 0
 var highestLetter = (String)()
 for (key,value) in letterFrequency {
-if value > highestFreq {
-highestFreq = value
-highestLetter = key
-}
+    if value > highestFreq {
+        highestFreq = value
+        highestLetter = key
+    }
 }
 
 print(highestLetter)
@@ -305,7 +346,7 @@ Input: `[1,1,2,3,3,3,4,5,6,6,7]`
 
 Output: `[1,3,6]`
 
-``` swift 
+```swift 
 
 let arr6 = [1,1,2,3,3,3,4,5,6,6,7]
 
@@ -325,9 +366,9 @@ var appearsTwice = [Int]()
 print(frequencyDict)
 
 for (key, value) in frequencyDict {
-if value >= 2 {
-appearsTwice.append(key)
-}
+    if value >= 2 {
+        appearsTwice.append(key)
+    }
 }
 
 print(appearsTwice)
@@ -341,16 +382,16 @@ Input: `Never trust a computer you can't throw out a window ~ Steve Wozniak`
 
 Output `o`
 
-``` swift
+```swift
 
 var letterFrequency = [String:Int]()
 
 for letter in quote.lowercased().filter({$0 != " "}) {
-if let count = letterFrequency[String(letter)] {
-letterFrequency[String(letter)] = count + 1
-} else {
-letterFrequency[String(letter)] = 1
-}
+    if let count = letterFrequency[String(letter)] {
+        letterFrequency[String(letter)] = count + 1
+    } else {
+        letterFrequency[String(letter)] = 1
+    }
 }
 
 var maxvalue = 0
@@ -361,12 +402,12 @@ print(letterFrequency)
 
 for (key,value) in letterFrequency {
 
-if value > maxvalue {
-maxvalue = value
-} else if value > secondmaxcount && secondmaxcount < maxvalue {
-secondmaxcount = value
-secondmaxletter = key
-}
+    if value > maxvalue {
+        maxvalue = value
+    } else if value > secondmaxcount && secondmaxcount < maxvalue {
+        secondmaxcount = value
+        secondmaxletter = key
+    }
 }
 print(secondmaxletter)
 
@@ -381,7 +422,7 @@ print(secondmaxletter)
 Input: `["Never", "trust", "a", "computer", "you", "can't", "throw", "out", "a", "window"]`
 
 Output: `["Never", "a", "a", "can\'t", "computer", "out", "throw", "trust", "window", "you"]`
-``` swift 
+```swift 
 
 let input = ["Never", "trust", "a", "computer", "you", "can't", "throw", "out", "a", "window"]
 
@@ -396,7 +437,7 @@ Input: `["Never", "trust", "a", "computer", "you", "can't", "throw", "out", "a",
 
 Output: `["a", "a", "you", "out", "Never", "trust", "can\'t", "throw", "window", "computer"]`
 
-``` swift
+```swift
 
 let input2 = ["Never", "trust", "a", "computer", "you", "can't", "throw", "out", "a", "window"]
 
@@ -413,7 +454,7 @@ Input: `["Never", "trust", "a", "computer", "you", "can't", "throw", "out", "a",
 
 Output: `["Never", "trust", "computer", "can\'t", "throw", "window"]`
 
-``` swift 
+```swift 
 
 let input3 = ["Never", "trust", "a", "computer", "you", "can't", "throw", "out", "a", "window"]
 
@@ -429,14 +470,14 @@ Input: `["Never", "trust", "a", "computer", "you", "can't", "throw", "out", "a",
 
 Output: `Never trust a computer you can't throw out a window`
 
-``` swift 
+```swift 
 
 let input4 = ["Never", "trust", "a", "computer", "you", "can't", "throw", "out", "a", "window"]
 
 var output4 = ""
 
 for word in input4 {
-output4 += "\(word) "
+    output4 += "\(word) "
 }
 
 print(output4)
@@ -455,26 +496,25 @@ enum NumberType {
     case odd
     
     func evenOrOdd(arr: [Int]) -> [Int] {
-    var numArr: [Int] = [] 
-    switch self { 
-    case .even: 
-    for numbers in arr {
-    if numbers % 2 == 0 {
-    numArr.append(numbers)
-    }
+        var numArr: [Int] = [] 
+        switch self { 
+            case .even: 
+            for numbers in arr {
+                if numbers % 2 == 0 {
+                    numArr.append(numbers)
+                }
+            }
     
+            case .odd: //Conditions to check for odd numbers + append
+            for numbers in arr {
+                if numbers % 2 != 0 {
+                    numArr.append(numbers)
+                }
+            }
+        }
+        return numArr //returns the array with the appeneded numbers
     }
-    
-    case .odd: //Conditions to check for odd numbers + append
-    for numbers in arr {
-    if numbers % 2 != 0 {
-    numArr.append(numbers)
-    }
-    }
-    }
-    return numArr //returns the array with the appeneded numbers
-    }
-    }
+}
 
 
 
@@ -495,20 +535,18 @@ Output: `[1,3,5]`
 ```swift
 
 enum StringType {
-case lowercase
-case uppercase
+    case lowercase
+    case uppercase
 
-func lowerOrUpper(str:String) -> String {
+    func lowerOrUpper(str:String) -> String {
+        switch self {
+        case .lowercase:
+            return str.lowercased()
 
-switch self {
-
-case .lowercase:
-return str.lowercased()
-
-case .uppercase:
-return str.uppercased()
-}
-}
+        case .uppercase:
+            return str.uppercased()
+        }
+    }
 }
 
 let input2Enums = "Design is not just what it looks like and feels like. Design is how it works"
